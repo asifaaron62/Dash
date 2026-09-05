@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SENTI-MIND | Text Analysis</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">S</span><span>SENTI-<b>MIND</b></span></a
+        >
+        <nav class="nav-menu">
+          <a class="nav-link" href="dashboard.html"><span>▦</span> Dashboard</a
+          ><a class="nav-link active" href="text-analysis.html"
+            ><span>⌁</span> Text Analysis</a
+          ><a class="nav-link" href="analytics.html"><span>◫</span> Analytics</a
+          ><a class="nav-link" href="about.html"><span>ⓘ</span> About</a>
+        </nav>
+        <div class="sidebar-footer">
+          <span class="status-dot"></span> Demo mode active<br /><small
+            >Frontend prototype v1.0</small
+          >
+        </div>
+      </aside>
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+      <main class="main-area">
+        <header class="top-header">
+          <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+            ☰
+          </button>
+          <div>
+            <h1>Text Analysis</h1>
+            <p>Analyze the sentiment of any written feedback.</p>
+          </div>
+          <div class="header-right">
+            <span class="date-badge">◷ Demo mode</span>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme"><span class="theme-icon">☾</span><span class="theme-label">Dark mode</span></button><div class="avatar">SM</div>
+          </div>
+        </header>
+        <section class="content">
+          <div class="page-intro">
+            <div>
+              <span class="eyebrow">SENTIMENT DETECTOR</span>
+              <h2>Analyze text feedback</h2>
+              <p class="intro-text">
+                Enter a review, comment, or message to see a simulated sentiment
+                result.
+              </p>
+            </div>
+          </div>
+          <div class="analysis-grid">
+            <article class="panel input-panel">
+              <div class="panel-heading">
+                <div>
+                  <h3>Enter Text</h3>
+                  <p>Your content remains in this browser demo.</p>
+                </div>
+              </div>
+              <label class="sr-only" for="analysisText">Text to analyze</label
+              ><textarea
+                id="analysisText"
+                maxlength="1000"
+                placeholder="Example: The product quality is amazing and I would definitely recommend it to my friends!"
+              ></textarea>
+              <div class="input-footer">
+                <span id="characterCount">0 / 1000 characters</span
+                ><button class="btn btn-primary" id="analyzeButton">
+                  ⌁ Analyze Sentiment
+                </button>
+              </div>
+            </article>
+            <article class="panel result-panel" id="resultCard">
+              <div class="empty-result" id="emptyResult">
+                <div class="empty-icon">⌁</div>
+                <h3>Waiting for your text</h3>
+                <p>
+                  Enter feedback and select Analyze Sentiment to view the demo
+                  result.
+                </p>
+              </div>
+              <div class="analysis-result hidden" id="analysisResult">
+                <div class="result-top">
+                  <div>
+                    <p class="result-label">DETECTED SENTIMENT</p>
+                    <h2 id="resultSentiment">Positive</h2>
+                    <p id="resultDescription">
+                      The text expresses a favorable opinion.
+                    </p>
+                  </div>
+                  <div class="sentiment-face positive-face" id="resultFace">
+                    ☺
+                  </div>
+                </div>
+                <div class="confidence-row">
+                  <span>Confidence Score</span
+                  ><strong id="confidenceScore">92%</strong>
+                </div>
+                <div class="progress-track">
+                  <div
+                    class="progress-fill positive-fill"
+                    id="confidenceBar"
+                    style="width: 92%"
+                  ></div>
+                </div>
+                <div class="probabilities">
+                  <div class="prob-row">
+                    <div><span>☺</span> Positive</div>
+                    <b id="positiveProbability">92%</b>
+                  </div>
+                  <div class="progress-track small">
+                    <div
+                      class="progress-fill positive-fill"
+                      id="positiveBar"
+                      style="width: 92%"
+                    ></div>
+                  </div>
+                  <div class="prob-row">
+                    <div><span>●</span> Neutral</div>
+                    <b id="neutralProbability">5%</b>
+                  </div>
+                  <div class="progress-track small">
+                    <div
+                      class="progress-fill neutral-fill"
+                      id="neutralBar"
+                      style="width: 5%"
+                    ></div>
+                  </div>
+                  <div class="prob-row">
+                    <div><span>☹</span> Negative</div>
+                    <b id="negativeProbability">3%</b>
+                  </div>
+                  <div class="progress-track small">
+                    <div
+                      class="progress-fill negative-fill"
+                      id="negativeBar"
+                      style="width: 3%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <article class="panel table-panel recent-text">
+            <div class="panel-heading">
+              <div>
+                <h3>Recent Demo Analysis</h3>
+                <p>Sample results from this browser session</p>
+              </div>
+              <button class="text-button" id="clearRecent">
+                Clear history
+              </button>
+            </div>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Text</th>
+                    <th>Sentiment</th>
+                    <th>Confidence</th>
+                    <th>Time</th>
+                  </tr>
+                </thead>
+                <tbody id="recentAnalysisBody">
+                  <tr>
+                    <td>“I really love this service. Great work!”</td>
+                    <td>
+                      <span class="sentiment-tag positive">Positive</span>
+                    </td>
+                    <td>95%</td>
+                    <td>Just now</td>
+                  </tr>
+                  <tr>
+                    <td>“It works as expected, nothing more.”</td>
+                    <td><span class="sentiment-tag neutral">Neutral</span></td>
+                    <td>73%</td>
+                    <td>Today</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      “The delivery took too long and support was unhelpful.”
+                    </td>
+                    <td>
+                      <span class="sentiment-tag negative">Negative</span>
+                    </td>
+                    <td>89%</td>
+                    <td>Today</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>
