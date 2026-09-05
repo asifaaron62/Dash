@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SENTI-MIND | Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">S</span><span>SENTI-<b>MIND</b></span></a
+        >
+        <nav class="nav-menu" aria-label="Main navigation">
+          <a class="nav-link active" href="dashboard.html"
+            ><span>▦</span> Dashboard</a
+          >
+          <a class="nav-link" href="text-analysis.html"
+            ><span>⌁</span> Text Analysis</a
+          >
+          <a class="nav-link" href="analytics.html"><span>◫</span> Analytics</a>
+          <a class="nav-link" href="about.html"><span>ⓘ</span> About</a>
+        </nav>
+        <div class="sidebar-footer">
+          <span class="status-dot"></span> Demo mode active<br /><small
+            >Frontend prototype v1.0</small
+          >
+        </div>
+      </aside>
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+      <main class="main-area">
+        <header class="top-header">
+          <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+            ☰
+          </button>
+          <div>
+            <h1>Dashboard</h1>
+            <p>Monitor sentiment across your digital platforms · Sample dashboard data</p>
+          </div>
+          <div class="header-right">
+            <span class="date-badge">◷ August 2026 · Demo</span>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme"><span class="theme-icon">☾</span><span class="theme-label">Dark mode</span></button><div class="avatar">SM</div>
+          </div>
+        </header>
+        <section class="content">
+          <div class="page-intro">
+            <div>
+              <span class="eyebrow">OVERVIEW</span>
+              <h2>Sentiment at a glance</h2>
+            </div>
+            <a href="text-analysis.html" class="btn btn-primary btn-small"
+              >+ Analyze New Text</a
+            >
+          </div>
+          <div class="kpi-grid">
+            <article class="kpi-card">
+              <div class="kpi-icon blue">▤</div>
+              <div>
+                <p>Total Reviews</p>
+                <h3>1,250</h3>
+                <small class="up">↑ 12.5% <em>vs. last month</em></small>
+              </div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-icon positive-bg">☺</div>
+              <div>
+                <p>Positive</p>
+                <h3>68%</h3>
+                <small class="up">↑ 4.2% <em>vs. last month</em></small>
+              </div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-icon neutral-bg">●</div>
+              <div>
+                <p>Neutral</p>
+                <h3>18%</h3>
+                <small class="steady">— 1.1% <em>vs. last month</em></small>
+              </div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-icon negative-bg">☹</div>
+              <div>
+                <p>Negative</p>
+                <h3>14%</h3>
+                <small class="down">↓ 2.8% <em>vs. last month</em></small>
+              </div>
+            </article>
+          </div>
+          <div class="chart-grid primary-charts">
+            <article class="panel">
+              <div class="panel-heading">
+                <div>
+                  <h3>Sentiment Distribution</h3>
+                  <p>All analyzed feedback</p>
+                </div>
+                <button class="icon-button" aria-label="Chart options">
+                  •••
+                </button>
+              </div>
+              <div class="doughnut-layout">
+                <div class="chart-box doughnut-box">
+                  <canvas id="distributionChart"></canvas>
+                </div>
+                <ul class="chart-legend">
+                  <li><i class="legend-positive"></i>Positive <b>68%</b></li>
+                  <li><i class="legend-neutral"></i>Neutral <b>18%</b></li>
+                  <li><i class="legend-negative"></i>Negative <b>14%</b></li>
+                </ul>
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel-heading">
+                <div>
+                  <h3>Platform Sentiment</h3>
+                  <p>Positive feedback by source</p>
+                </div>
+                <span class="mini-label">This month</span>
+              </div>
+              <div class="chart-box"><canvas id="platformChart"></canvas></div>
+            </article>
+          </div>
+          <article class="panel trend-panel">
+            <div class="panel-heading">
+              <div>
+                <h3>Sentiment Trend</h3>
+                <p>Review sentiment over the last 7 days</p>
+              </div>
+              <div class="legend-inline">
+                <span><i class="legend-positive"></i> Positive</span
+                ><span><i class="legend-neutral"></i> Neutral</span
+                ><span><i class="legend-negative"></i> Negative</span>
+              </div>
+            </div>
+            <div class="chart-box chart-tall">
+              <canvas id="trendChart"></canvas>
+            </div>
+          </article>
+          <article class="panel table-panel">
+            <div class="panel-heading">
+              <div>
+                <h3>Recent Analysis</h3>
+                <p>Latest reviews analyzed by SENTI-MIND</p>
+              </div>
+              <a href="analytics.html" class="text-link">View all →</a>
+            </div>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Review</th>
+                    <th>Platform</th>
+                    <th>Sentiment</th>
+                    <th>Confidence</th>
+                    <th>Analyzed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>“The service was excellent and delivery was fast!”</td>
+                    <td>
+                      <span class="platform-pill facebook">f</span> Facebook
+                    </td>
+                    <td>
+                      <span class="sentiment-tag positive">Positive</span>
+                    </td>
+                    <td>94%</td>
+                    <td>2 mins ago</td>
+                  </tr>
+                  <tr>
+                    <td>“The product is okay, but packaging could improve.”</td>
+                    <td>
+                      <span class="platform-pill youtube">▶</span> YouTube
+                    </td>
+                    <td><span class="sentiment-tag neutral">Neutral</span></td>
+                    <td>78%</td>
+                    <td>18 mins ago</td>
+                  </tr>
+                  <tr>
+                    <td>“Very disappointing experience. I need support.”</td>
+                    <td>
+                      <span class="platform-pill ecommerce">◈</span> E-Commerce
+                    </td>
+                    <td>
+                      <span class="sentiment-tag negative">Negative</span>
+                    </td>
+                    <td>91%</td>
+                    <td>1 hour ago</td>
+                  </tr>
+                  <tr>
+                    <td>“Love the quality! Worth every penny.”</td>
+                    <td>
+                      <span class="platform-pill instagram">◎</span> Instagram
+                    </td>
+                    <td>
+                      <span class="sentiment-tag positive">Positive</span>
+                    </td>
+                    <td>96%</td>
+                    <td>2 hours ago</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
